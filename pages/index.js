@@ -92,12 +92,10 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [next, setNext] = useState();
   const [prev, setPrev] = useState();
-  const [queryUrl, setQueryUrl] = useState('http://localhost:8000/api/classes');
+  const [queryUrl, setQueryUrl] = useState('http://167.172.150.68/api/classes'); //http://167.172.150.68/api/classes http://localhost:8000/api/classes
 
   const tileContent = useCallback(({ date, view }) => {
     const groups = groupDates(comEvents);
-    console.log(groups);
-    console.log("groups ^");
     const dateGroups = Object.keys(groups);
     var count = 0;
 
@@ -142,6 +140,9 @@ export default function Home() {
       setBackupEvents(data.results);
       setNext(data.next);
       setPrev(data.previous);
+    })
+    .catch(err => {
+      console.log(err);
     })
   }, [queryUrl]);
 

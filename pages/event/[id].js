@@ -72,7 +72,7 @@ const Events = () => {
       });
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/classes/${id}`)
+        fetch(`https://recipeze.net/api/classes/${id}`)
         .then((res) => res.json())
         .then((data) => {
             setEvent(data);
